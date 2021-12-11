@@ -1,0 +1,25 @@
+<h4>Select your theme</h4>
+<div *ngIf="!themesError">
+  <mat-form-field appearance="fill">
+    <mat-label>Theme</mat-label>
+    <mat-select [(ngModel)]="selectedTheme" (valueChange)="setSelectedThemeSets($event)">
+      <mat-option *ngFor="let theme of legoThemes" [value]="theme">
+        {{theme.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div *ngIf="selectedTheme && !setsError">
+    <h4>{{selectedTheme.name}} sets</h4>
+    <mat-list>
+      <mat-list-item *ngFor="let themeSet of themeSets"
+                (click)="navigateToDetails(themeSet)">
+        <a mat-flat-button>{{themeSet.name}}</a>
+        <mat-icon *ngIf="isFavorite(themeSet.set_num)" color="warn">favorite</mat-icon>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+
+<p *ngIf="themesError || setsError">Oops, something went wrong!</p>

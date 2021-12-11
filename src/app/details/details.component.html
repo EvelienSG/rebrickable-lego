@@ -1,0 +1,35 @@
+<h2>Details Lego {{theme.name}} {{selectedSet.set_num}}</h2>
+
+<div class="row">
+  <div class="column">
+    <h2>{{selectedSet.name | uppercase}}
+      <mat-icon color="warn"
+                *ngIf="favorite">
+        favorite
+      </mat-icon>
+    </h2>
+    <p>Set number: {{selectedSet.set_num}}</p>
+    <p>Released in: {{selectedSet.year}}</p>
+    <p>Number of parts: {{selectedSet.num_parts}}</p>
+    <button mat-raised-button
+            color="accent"
+            class="button"
+            (click)="toggleFavorite()">
+      Favorite
+      <mat-icon color="warn">favorite</mat-icon>
+    </button>
+    <button mat-raised-button
+            color="primary"
+            (click)="navigateBack()">
+      Back to overview
+    </button>
+  </div>
+
+  <div class="column">
+    <img class="img"
+         alt="Image"
+         [src]="selectedSet.set_img_url">
+  </div>
+</div>
+
+
