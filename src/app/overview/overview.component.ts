@@ -22,6 +22,10 @@ export class OverviewComponent {
     private readonly stateService: AppStateService,
     private readonly router: Router
   ) {
+    this.selectedTheme = this.stateService.selectedTheme;
+    if (this.selectedTheme) {
+      this.setSelectedThemeSets(this.selectedTheme);
+    }
     this.resourceService.getThemes()
       .pipe(take(1))
       .subscribe( {
