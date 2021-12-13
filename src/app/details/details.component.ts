@@ -24,6 +24,7 @@ export class DetailsComponent {
     }
     this.theme = this.stateService.selectedTheme;
     this.selectedSet = this.stateService.selectedSet;
+    this.favorite = this.stateService.favoriteSets.some(favorite => favorite.set_num === this.selectedSet.set_num);
   }
 
   public toggleFavorite(): void {
