@@ -14,9 +14,9 @@ describe('StateService', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('removeFavorite', () => {
-    it('should remove a favorite from the favorites array', () => {
-
-    });
-  })
+  // describe('removeFavorite', () => {
+  //   it('should remove a favorite from the favorites array', () => {
+  //
+  //   });
+  // })
 });
